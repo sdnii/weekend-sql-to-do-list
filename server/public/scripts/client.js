@@ -40,14 +40,16 @@ function getTasks(){
         let el = $( '#tasksOut' );
         el.empty();
         for( let i=0; i< response.length; i++){
-            let completeString = '';
             if(response[i].complete){
-                completeString = "COMPLETE"
+                document.getElementById("tasksOut").className = "completeColor";
+            }
+            else{
+                document.getElementById("tasksOut").className = "uncompleteColor";
             }
             el.append( `<li>${response[i].description }, ${ response[i].complete }
             <button class="completeButton" data-id="${ response[i].id }">Complete</button>
             <button class="deleteButton" data-id="${ response[i].id }">Delete</button>
-           ${completeString}
+           
             </li>`);
         }
 
