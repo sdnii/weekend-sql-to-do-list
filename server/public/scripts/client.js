@@ -5,8 +5,8 @@ function onReady(){
     getTasks();
     // click handlers
     $('#addTaskButton').on( 'click', addTask ); 
-    $( '#tasksOut' ).on( 'click', '.completeButton', completeTask ); 
-    $( '#tasksOut' ).on( 'click', '.deleteButton', deleteTask ); 
+    $( '#tasksOut' ).on( 'click', '.completeButtonClass', completeTask ); 
+    $( '#tasksOut' ).on( 'click', '.deleteButtonClass', deleteTask ); 
 
 }
 
@@ -40,17 +40,26 @@ function getTasks(){
         let el = $( '#tasksOut' );
         el.empty();
         for( let i=0; i< response.length; i++){
-            if(response[i].complete){
-                document.getElementById("tasksOut").className = "completeColor";
-            }
-            else{
-                document.getElementById("tasksOut").className = "uncompleteColor";
-            }
-            el.append( `<li>${response[i].description }, ${ response[i].complete }
-            <button class="completeButton" data-id="${ response[i].id }">Complete</button>
-            <button class="deleteButton" data-id="${ response[i].id }">Delete</button>
-           
-            </li>`);
+            if (response[i].complete == false) {
+                el.append(`<tr class="incompleteClass" ><td>${response[i].description}</td>
+                <td><button class="deleteButtonClass" data-id="${response[i].id}">Delete</button></td><td><button class="completeButtonClass" data-id="${response[i].id}">Complete</button></td></tr>`);
+              } else {
+                el.append(`<tr class="completeClass" ><td>${response[i].description}</td>
+                  <td><button class="deleteButtonClass" data-id="${response[i].id}">Delete</button></td>
+                  <td class="checkmark">✔</td>
+                  </tr>`);
+              }
+
+            // el.append( `<li id="listItem">${response[i].description }, ${ response[i].complete }
+            // <button class="completeButton" data-id="${ response[i].id }">Complete</button>
+            // <button class="deleteButton" data-id="${ response[i].id }">Delete</button>
+            // </li>`);
+            // if(response[i].complete === true){
+            //     document.getElementById("listItem").className = "completeColor";
+            // }
+            // else if (response[i].complete === false){
+            //     document.getElementById("listItem").className = "uncompleteColor";
+            // }
         }
 
     }).catch( function( err ){

@@ -1,7 +1,42 @@
-.completeColor{
-    background-color: green;
+body{
+    font-family: helvetica;
 }
 
-.uncompleteColor{
-    background-color: grey;
+td {
+    font-weight:550;
+    padding: 15px;
+    text-align: left;
+}
+
+.completeClass {
+    background-color: rgb(205, 249, 205);
+}
+
+.incompleteClass {
+    background-color: rgba(231, 70, 102, 0.1);
+}
+
+.checkmark {
+    text-align: center;
+}
+
+h1{
+    font-weight: 400;
+}
+
+
+
+h1{
+    margin-left: 150px;
+}
+
+
+
+.inputDivClass{
+    margin-left: 41px;
+}
+
+input,button{
+    border-radius: 10px;
+    border-width: thin;
 }
