@@ -3,6 +3,8 @@ $( document ).ready( onReady );
 function onReady(){
     console.log('JQ');
     getTasks();
+    // click handlers
+    $( '#tasksOut' ).on( 'click', '.completeButton', completeTask ); 
 }
 
 function getTasks(){
@@ -16,11 +18,18 @@ function getTasks(){
         let el = $( '#tasksOut' );
         el.empty();
         for( let i=0; i< response.length; i++){
-            el.append( `<li>${response[i].description }, ${ response[i].complete }</li>`);
+            el.append( `<li>${response[i].description }, ${ response[i].complete }
+            <button class="completeButton" data-id="${ response[i].id }">Complete</button>
+            <button>Delete</button>
+            </li>`);
         }
 
     }).catch( function( err ){
         console.log( err );
         alert( 'error getting tasks' );
     })
+}
+
+function completeTask(){
+    console.log( 'in completeTask:', $( this ).data( 'id' ) );
 }
