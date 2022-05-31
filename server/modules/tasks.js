@@ -27,4 +27,28 @@ router.delete( '/', ( req, res )=>{
     })
 })
 
+router.put( '/', ( req, res )=>{
+    console.log( 'in /tasks PUT:', req.query );
+    let queryString = `UPDATE tasks SET complete=true WHERE id=$1;`;
+    let values = [ req.query.id ];
+    pool.query( queryString, values ).then( ( results )=>{
+        res.sendStatus( 200 );
+    }).catch( (err)=>{
+        console.log( err );
+        res.sendStatus( 500 );
+    })
+})
+
+router.post( '/', ( req, res )=>{
+    console.log( 'in /tasks POST:', req.body );
+    let queryString = `INSERT INTO tasks (description) VALUES ($1);`;
+    let values = [ req.body.description ];
+    pool.query( queryString, values ).then( ( results )=>{
+        res.sendStatus( 200 );
+    }).catch( ( err )=>{
+        console.log( err );
+        res.sendStatus( 500 );
+    })
+})
+
 module.exports = router;
