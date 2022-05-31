@@ -1,9 +1,9 @@
 # Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
+To-Do List
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Allows the user to enter tasks, mark them completed, and see their completion status. Also allows task deletion.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+
+
+
