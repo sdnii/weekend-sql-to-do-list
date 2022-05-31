@@ -15,7 +15,7 @@ td {
 }
 
 .incompleteClass {
-    background-color: rgba(231, 70, 102, 0.1);
+    background-color: rgba(255, 4, 54, 0.1);
 }
 
 .checkmark {
@@ -42,3 +42,6 @@ input,button{
     border-radius: 10px;
     border-width: thin;
 }
+
+html {
+    background-color: lightcyan};
