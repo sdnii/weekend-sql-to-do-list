@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const tasks = require('./modules/tasks');
 //uses
 app.use(express.static('server/public'));
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/tasks', tasks);
 //globals
 const port = 5001;
